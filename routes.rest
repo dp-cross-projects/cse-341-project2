@@ -1,0 +1,209 @@
+// Parameters
+@serverUrl = http://localhost:8080
+
+#################################
+### User Management endpoints ###
+#################################
+
+# Set ID
+@userId = 663f9dea3b5c36aa04a5dd06
+
+### Get all users
+GET {{serverUrl}}/user
+
+### Get user by id
+GET {{serverUrl}}/user/{{userId}}
+
+### Create user
+POST {{serverUrl}}/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Bill",
+    "lastName": "Gates",
+    "phone": "+54112223444555",
+    "email": "bgates@test.com",
+    "position": "Seller",
+    "userName": "bgates",
+    "password": "Password"
+}
+
+### Update user
+PUT {{serverUrl}}/user/{{userId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Bill",
+    "lastName": "Gates",
+    "phone": "+54112223444555",
+    "email": "bgates@fake.com",
+    "position": "Buyer",
+    "userName": "bgates",
+    "password": "Password"
+}
+
+### Delete user
+DELETE {{serverUrl}}/user/{{userId}} HTTP/1.1
+
+##########################
+### Customer endpoints ###
+##########################
+
+# Set Id
+@customerId = 663f9c5dc5cc1ebdfd73b5c5
+
+### Get all customer
+GET {{serverUrl}}/customer
+
+### Get customer by id
+GET {{serverUrl}}/customer/{{customerId}}
+
+### Create customer
+POST {{serverUrl}}/customer HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Daniel",
+    "lastName": "Parra",
+    "email": "dparra@test.com",
+    "phone": "+54112223444555"
+}
+
+### Update customer
+PUT {{serverUrl}}/customer/{{customerId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Daniel",
+    "lastName": "Parra",
+    "email": "dparra@fake.com",
+    "phone": "+54112223444555"
+}
+
+### Delete customer
+DELETE {{serverUrl}}/customer/{{customerId}} HTTP/1.1
+
+###########################
+### Inventory endpoints ###
+###########################
+
+# Set ID
+@inventoryId = 663fb793af9e20126f5db3be
+
+### Get all inventory
+GET {{serverUrl}}/inventory
+
+### Get inventory by id
+GET {{serverUrl}}/inventory/{{inventoryId}}
+
+### Create inventory
+POST {{serverUrl}}/inventory HTTP/1.1
+Content-Type: application/json
+
+{
+    "itemName": "Processor",
+    "itemMake": "AMD",
+    "itemModel": "Ryzen 7 5700G",
+    "itemQty": 3,
+    "itemPrice": 163.3,
+    "itemTax": 0.21
+}
+
+### Update inventory
+PUT {{serverUrl}}/inventory/{{inventoryId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "itemName": "Processor",
+    "itemMake": "AMD",
+    "itemModel": "Ryzen 5 5500G",
+    "itemQty": 12,
+    "itemPrice": 163.3,
+    "itemTax": 0.105
+}
+
+### Delete inventory
+DELETE {{serverUrl}}/inventory/{{inventoryId}} HTTP/1.1
+
+#############################
+### Transaction endpoints ###
+#############################
+
+# Set ID
+@transactionId = 663fdaf820f799718b1a8ea0
+
+### Get all transactions
+GET {{serverUrl}}/transaction
+
+### Get transaction by id
+GET {{serverUrl}}/transaction/{{transactionId}}
+
+### Create transaction
+POST {{serverUrl}}/transaction HTTP/1.1
+Content-Type: application/json
+
+{
+    "sellerId": "663fe0b90bc77e3b0f43e3e9",
+    "customerId": "663fe0d50bc77e3b0f43e3ea",
+    "itemId": "663fe0e50bc77e3b0f43e3eb",
+    "itemQty": 1
+}
+
+### Update transaction
+PUT {{serverUrl}}/transaction/{{transactionId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "sellerId": "seller_Id",
+    "customerId": "customer_Id",
+    "itemId": "item_Id",
+    "itemQty": "itemQty",
+    "itemPrice": "itemPrice",
+    "itemTax": "itemTax",
+    "itemTotalPrice": "itemTotalPrice",
+    "date": "date"
+}
+
+### Delete transaction
+DELETE {{serverUrl}}/transaction/{{transactionId}} HTTP/1.1
+
+##########################
+### Purchase endpoints ###
+##########################
+
+# Set ID
+@purchaseId = 663f9d4cc5cc1ebdfd73b5c7
+
+### Get all purchases
+GET {{serverUrl}}/purchase
+
+### Get purchase by id
+GET {{serverUrl}}/purchase/{{purchaseId}}
+
+### Create purchase
+POST {{serverUrl}}/purchase HTTP/1.1
+Content-Type: application/json
+
+{
+    "userId": "663fe0b90bc77e3b0f43e3e9",
+    "itemId": "663fe0e50bc77e3b0f43e3eb",
+    "itemQty": 3,
+    "itemPrice": 132.1,
+    "itemTax": 0.21
+}
+
+### Update purchase
+PUT {{serverUrl}}/purchase/{{purchaseId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "userId": "user_id",
+    "itemId": "item_id",
+    "itemQty": "qty",
+    "itemPrice": "price",
+    "itemTax": "tax",
+    "itemTotalPrice": "totalprice"
+}
+
+### Delete purchase
+DELETE {{serverUrl}}/purchase/{{purchaseId}} HTTP/1.1
