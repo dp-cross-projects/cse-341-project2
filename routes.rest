@@ -50,7 +50,7 @@ DELETE {{serverUrl}}/user/{{userId}} HTTP/1.1
 ##########################
 
 # Set Id
-@customerId = 663f9c5dc5cc1ebdfd73b5c5
+@customerId = 663ff380e20eb13611bc6093
 
 ### Get all customer
 GET {{serverUrl}}/customer
@@ -66,7 +66,7 @@ Content-Type: application/json
     "firstName": "Daniel",
     "lastName": "Parra",
     "email": "dparra@test.com",
-    "phone": "+54112223444555"
+    "phone": 54112223444555
 }
 
 ### Update customer
@@ -77,7 +77,7 @@ Content-Type: application/json
     "firstName": "Daniel",
     "lastName": "Parra",
     "email": "dparra@fake.com",
-    "phone": "+54112223444555"
+    "phone": "a54112223444555"
 }
 
 ### Delete customer
