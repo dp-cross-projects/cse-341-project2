@@ -5,7 +5,7 @@
     "description": "An API to manage the buy and sell process from inventory",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse-341-project2-4ug6.onrender.com",
   "basePath": "/",
   "schemes": ["https", "http"],
   "paths": {
@@ -21,18 +21,50 @@
     },
     "/inventory/": {
       "get": {
-        "description": "",
+        "description": "Get all items from inventory",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "Processor"
+                },
+                "itemMake": {
+                  "example": "AMD"
+                },
+                "itemModel": {
+                  "example": "Ryzen 7 5700G"
+                },
+                "itemQty": {
+                  "example": 3
+                },
+                "itemPrice": {
+                  "example": 163.3
+                },
+                "itemTax": {
+                  "example": 0.21
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -49,8 +81,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -62,11 +94,41 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itemName": {
+                  "example": "Processor"
+                },
+                "itemMake": {
+                  "example": "Intel"
+                },
+                "itemModel": {
+                  "example": "Core i5-13600k"
+                },
+                "itemQty": {
+                  "example": 3
+                },
+                "itemPrice": {
+                  "example": 163.3
+                },
+                "itemTax": {
+                  "example": 0.21
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -81,26 +143,61 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/customer/": {
       "get": {
-        "description": "",
+        "description": "Get all customers",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "Elon"
+                },
+                "lastName": {
+                  "example": "Musk"
+                },
+                "email": {
+                  "example": "emusk@fake.com"
+                },
+                "phone": {
+                  "example": 54112223444555
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -117,8 +214,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -130,11 +227,35 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "Mark"
+                },
+                "lastName": {
+                  "example": "Zuckerberg"
+                },
+                "email": {
+                  "example": "mzuckerberg@fake.com"
+                },
+                "phone": {
+                  "example": 54112223444555
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -149,8 +270,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -159,16 +283,42 @@
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sellerId": {
+                  "example": "663fe0b90bc77e3b0f43e3e9"
+                },
+                "customerId": {
+                  "example": "663fe0d50bc77e3b0f43e3ea"
+                },
+                "itemId": {
+                  "example": "663fe0e50bc77e3b0f43e3eb"
+                },
+                "itemQty": {
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -185,8 +335,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -198,11 +348,47 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sellerId": {
+                  "example": "663fe0b90bc77e3b0f43e3e9"
+                },
+                "customerId": {
+                  "example": "663fe0d50bc77e3b0f43e3ea"
+                },
+                "itemId": {
+                  "example": "663fe0e50bc77e3b0f43e3eb"
+                },
+                "itemQty": {
+                  "example": 2
+                },
+                "itemPrice": {
+                  "example": 163.3
+                },
+                "itemTax": {
+                  "example": 0.21
+                },
+                "itemTotalPrice": {
+                  "example": 395.19
+                },
+                "date": {
+                  "example": "2024-05-11T21:21:51.315Z"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -217,8 +403,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -227,16 +416,45 @@
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "663fe0b90bc77e3b0f43e3e9"
+                },
+                "itemId": {
+                  "example": "663fe0e50bc77e3b0f43e3eb"
+                },
+                "itemQty": {
+                  "example": 3
+                },
+                "itemPrice": {
+                  "example": 132.1
+                },
+                "itemTax": {
+                  "example": 0.21
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -253,8 +471,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -266,11 +484,44 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "663fe0b90bc77e3b0f43e3e9"
+                },
+                "itemId": {
+                  "example": "663fe0e50bc77e3b0f43e3eb"
+                },
+                "itemQty": {
+                  "example": 1
+                },
+                "itemPrice": {
+                  "example": 160.1
+                },
+                "itemTax": {
+                  "example": 0.21
+                },
+                "itemTotalPrice": {
+                  "example": 193.72
+                },
+                "date": {
+                  "example": "2024-05-11T21:20:40.831Z"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -285,8 +536,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -295,16 +549,51 @@
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "Bill"
+                },
+                "lastName": {
+                  "example": "Gates"
+                },
+                "phone": {
+                  "example": 54112223444555
+                },
+                "email": {
+                  "example": "bgates@test.com"
+                },
+                "position": {
+                  "example": "Seller"
+                },
+                "userName": {
+                  "example": "bgates"
+                },
+                "password": {
+                  "example": "Password"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -321,8 +610,8 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -334,11 +623,44 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "Bill"
+                },
+                "lastName": {
+                  "example": "Gates"
+                },
+                "phone": {
+                  "example": 54112223444555
+                },
+                "email": {
+                  "example": "bgates@test.com"
+                },
+                "position": {
+                  "example": "Manager"
+                },
+                "userName": {
+                  "example": "bgates"
+                },
+                "password": {
+                  "example": "Password"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -353,8 +675,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
