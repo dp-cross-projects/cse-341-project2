@@ -1,76 +1,76 @@
 const documentFormat = {};
 
 /*  **********************************
-*  Customer format
-* ********************************* */
+ *  Customer format
+ * ********************************* */
 documentFormat.customerFormat = (body) => {
-    return {
-        firstName: body.firstName,
-        lastName: body.lastName,
-        email: body.email,
-        phone: body.phone
-    }
+  return {
+    firstName: body.firstName,
+    lastName: body.lastName,
+    email: body.email,
+    phone: body.phone
+  };
 };
 
 /*  **********************************
-*  Inventory format
-* ********************************* */
+ *  Inventory format
+ * ********************************* */
 documentFormat.inventoryFormat = (body) => {
-    return {
-        itemName: body.itemName,
-        itemMake: body.itemMake,
-        itemModel: body.itemModel,
-        itemQty: body.itemQty,
-        itemPrice: body.itemPrice,
-        itemTax: body.itemTax,
-        itemTotalPrice: body.itemTotalPrice // from inventoryController
-    }
+  return {
+    itemName: body.itemName,
+    itemMake: body.itemMake,
+    itemModel: body.itemModel,
+    itemQty: body.itemQty,
+    itemPrice: body.itemPrice,
+    itemTax: body.itemTax,
+    itemTotalPrice: body.itemTotalPrice // from inventoryController
+  };
 };
 
 /*  **********************************
-*  User format
-* ********************************* */
+ *  User format
+ * ********************************* */
 documentFormat.userFormat = (body) => {
-    return {
-        firstName: body.firstName,
-        lastName: body.lastName,
-        phone: body.phone,
-        email: body.email,
-        position: body.position,
-        userName: body.userName,
-        password: body.password
-    }
+  return {
+    firstName: body.firstName,
+    lastName: body.lastName,
+    phone: body.phone,
+    email: body.email,
+    position: body.position,
+    userName: body.userName,
+    password: body.password
+  };
 };
 
 /*  **********************************
-*  Transaction format
-* ********************************* */
+ *  Transaction format
+ * ********************************* */
 documentFormat.transactionFormat = (body) => {
-    return {
-        sellerId: body.sellerId,
-        customerId: body.customerId,
-        itemId: body.itemId,
-        itemQty: body.itemQty,
-        itemPrice: body.itemPrice, //from inventoryController
-        itemTax: body.itemTax, //from inventoryController
-        itemTotalPrice: body.itemTotalPrice, //from inventoryController
-        date: body.date //from inventoryController
-    }
+  return {
+    sellerId: body.sellerId,
+    customerId: body.customerId,
+    itemId: body.itemId,
+    itemQty: body.itemQty,
+    itemPrice: body.itemPrice, //from inventoryController
+    itemTax: body.itemTax, //from inventoryController
+    itemTotalPrice: body.itemTotalPrice, //from inventoryController
+    date: body.date //from inventoryController
+  };
 };
 
 /*  **********************************
-*  Purchase format
-* ********************************* */
+ *  Purchase format
+ * ********************************* */
 documentFormat.purchaseFormat = (body) => {
-    return {
-        userId: body.userId,
-        itemId: body.itemId,
-        itemQty: body.itemQty,
-        itemPrice: body.itemPrice, //from inventoryController
-        itemTax: body.itemTax, //from inventoryController
-        itemTotalPrice: body.itemTotalPrice, //from inventoryController
-        date: body.date //from inventoryController
-    }
+  return {
+    userId: body.userId,
+    itemId: body.itemId,
+    itemQty: body.itemQty,
+    itemPrice: body.itemPrice, //from inventoryController
+    itemTax: body.itemTax, //from inventoryController
+    itemTotalPrice: body.itemTotalPrice, //from inventoryController
+    date: body.date //from inventoryController
+  };
 };
 
 module.exports = documentFormat;

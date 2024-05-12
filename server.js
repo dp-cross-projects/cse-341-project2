@@ -17,13 +17,12 @@ app
   .use('/', require('./routes'));
 
 /* ***********************
-* Express Error Handler
-*************************/
+ * Express Error Handler
+ *************************/
 app.use(async (err, req, res, next) => {
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  console.log(err)
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+  console.log(err);
 });
-
 
 /* ***********************
  * Log statement to confirm
