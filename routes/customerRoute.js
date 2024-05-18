@@ -3,13 +3,15 @@ const router = express.Router();
 const customerController = require('../controllers/customerController');
 const customerValidation = require('../utilities/customer-validation');
 const utilities = require('../utilities/index');
+const { isAuthenticated } = require('../middleware/authenticate');
 
-router.get('/', utilities.handleErrors(customerController.getAllCustomers));
+router.get('/', isAuthenticated, utilities.handleErrors(customerController.getAllCustomers));
 
-router.get('/:id', utilities.handleErrors(customerController.getSingleCustomer));
+router.get('/:id', isAuthenticated, utilities.handleErrors(customerController.getSingleCustomer));
 
 router.post(
   '/',
+  isAuthenticated, 
   customerValidation.customerCreationRules(),
   customerValidation.checkCustomerRules,
   utilities.handleErrors(customerController.createCustomer)
@@ -17,11 +19,12 @@ router.post(
 
 router.put(
   '/:id',
+  isAuthenticated, 
   customerValidation.customerUpdateRules(),
   customerValidation.checkCustomerRules,
   utilities.handleErrors(customerController.updateCustomer)
 );
 
-router.delete('/:id', utilities.handleErrors(customerController.deleteCustomer));
+router.delete('/:id',isAuthenticated,  utilities.handleErrors(customerController.deleteCustomer));
 
 module.exports = router;

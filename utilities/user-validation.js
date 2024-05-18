@@ -3,39 +3,21 @@ const validate = {};
 
 validate.userCreationRules = () => {
   return [
-    body('firstName', 'firstName is required').notEmpty(),
-
-    body('lastName', 'lastName is required').notEmpty(),
-
-    body('phone', 'Phone number is required').notEmpty(),
-    body('phone', 'Phone number should be integer').isNumeric().isInt(),
-
-    body('email', 'Email format error').isEmail().normalizeEmail(),
-
-    body('position', 'position is required').notEmpty(),
+    body('githubId', 'githubId is required').notEmpty(),
 
     body('username', 'username is required').notEmpty(),
 
-    body('password', 'username is required').notEmpty()
+    body('displayName', 'displayName is required').notEmpty()
   ];
 };
 
 validate.userUpdateRules = () => {
   return [
-    body('firstName', 'firstName is required').notEmpty(),
-
-    body('lastName', 'lastName is required').notEmpty(),
-
-    body('phone', 'Phone number is required').notEmpty(),
-    body('phone', 'Phone number should be integer').isNumeric().isInt(),
-
-    body('email', 'Email format error').isEmail().normalizeEmail(),
-
-    body('position', 'position is required').notEmpty(),
+    body('githubId', 'githubId is required').notEmpty(),
 
     body('username', 'username is required').notEmpty(),
 
-    body('password', 'username is required').notEmpty()
+    body('displayName', 'displayName is required').notEmpty()
   ];
 };
 

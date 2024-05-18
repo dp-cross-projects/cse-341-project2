@@ -11,16 +11,18 @@
   "paths": {
     "/api-docs": {
       "get": {
-        "description": "",
+        "summary": "Public endpoint. Authentication not required",
+        "description": "API documentation with Swagger",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       }
     },
     "/inventory/": {
       "get": {
+        "summary": "Public endpoint. Authentication not required",
         "description": "Get all items from inventory",
         "responses": {
           "200": {
@@ -29,7 +31,8 @@
         }
       },
       "post": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Create a new item. Returns ID",
         "parameters": [
           {
             "name": "body",
@@ -63,6 +66,9 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -71,7 +77,8 @@
     },
     "/inventory/{id}": {
       "get": {
-        "description": "",
+        "summary": "Public endpoint. Authentication not required",
+        "description": "Returns an item by ID",
         "parameters": [
           {
             "name": "id",
@@ -87,7 +94,8 @@
         }
       },
       "put": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Updates an item by ID",
         "parameters": [
           {
             "name": "id",
@@ -127,13 +135,17 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Delete an item by ID",
         "parameters": [
           {
             "name": "id",
@@ -146,6 +158,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -154,6 +169,7 @@
     },
     "/customer/": {
       "get": {
+        "summary": "Private endpoint. Github OAuth Authentication required",
         "description": "Get all customers",
         "responses": {
           "200": {
@@ -162,7 +178,8 @@
         }
       },
       "post": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Create a new customer. Returns customer ID",
         "parameters": [
           {
             "name": "body",
@@ -190,6 +207,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -198,7 +218,8 @@
     },
     "/customer/{id}": {
       "get": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Get customer by ID",
         "parameters": [
           {
             "name": "id",
@@ -210,11 +231,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Not authenticated"
           }
         }
       },
       "put": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Updates a customer by ID",
         "parameters": [
           {
             "name": "id",
@@ -248,13 +273,17 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Delete a customer by ID",
         "parameters": [
           {
             "name": "id",
@@ -267,6 +296,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -275,7 +307,8 @@
     },
     "/transaction/": {
       "get": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Get all transactions",
         "responses": {
           "200": {
             "description": "OK"
@@ -283,7 +316,8 @@
         }
       },
       "post": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Creates a new transaction. Returns an ID",
         "parameters": [
           {
             "name": "body",
@@ -311,6 +345,9 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -319,7 +356,8 @@
     },
     "/transaction/{id}": {
       "get": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Returns a transaction by ID",
         "parameters": [
           {
             "name": "id",
@@ -331,11 +369,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Not authenticated"
           }
         }
       },
       "put": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Updates a transaction by ID",
         "parameters": [
           {
             "name": "id",
@@ -381,13 +423,17 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Deletes a transaction by ID",
         "parameters": [
           {
             "name": "id",
@@ -400,6 +446,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -408,7 +457,8 @@
     },
     "/purchase/": {
       "get": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Get all purchases",
         "responses": {
           "200": {
             "description": "OK"
@@ -416,7 +466,8 @@
         }
       },
       "post": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Create a new purchase",
         "parameters": [
           {
             "name": "body",
@@ -447,6 +498,9 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -455,7 +509,8 @@
     },
     "/purchase/{id}": {
       "get": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Get a purchase by ID",
         "parameters": [
           {
             "name": "id",
@@ -467,11 +522,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Not authenticated"
           }
         }
       },
       "put": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Updates a purchase by ID",
         "parameters": [
           {
             "name": "id",
@@ -514,13 +573,17 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Delete a purchase by ID",
         "parameters": [
           {
             "name": "id",
@@ -532,6 +595,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Not authenticated"
           },
           "500": {
             "description": "Internal Server Error"
@@ -541,60 +607,22 @@
     },
     "/user/": {
       "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "Bill"
-                },
-                "lastName": {
-                  "example": "Gates"
-                },
-                "phone": {
-                  "example": 54112223444555
-                },
-                "email": {
-                  "example": "bgates@test.com"
-                },
-                "position": {
-                  "example": "Seller"
-                },
-                "userName": {
-                  "example": "bgates"
-                },
-                "password": {
-                  "example": "Password"
-                }
-              }
-            }
-          }
-        ],
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Get all users",
         "responses": {
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "401": {
+            "description": "Not authenticated"
           }
         }
       }
     },
     "/user/{id}": {
       "get": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Get a user by ID",
         "parameters": [
           {
             "name": "id",
@@ -606,11 +634,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Not authenticated"
           }
         }
       },
       "put": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Updates a user by ID",
         "parameters": [
           {
             "name": "id",
@@ -624,26 +656,14 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "Bill"
+                "githubId": {
+                  "example": 11110000
                 },
-                "lastName": {
-                  "example": "Gates"
+                "username": {
+                  "example": "newuser"
                 },
-                "phone": {
-                  "example": 54112223444555
-                },
-                "email": {
-                  "example": "bgates@test.com"
-                },
-                "position": {
-                  "example": "Manager"
-                },
-                "userName": {
-                  "example": "bgates"
-                },
-                "password": {
-                  "example": "Password"
+                "displayName": {
+                  "example": "New User"
                 }
               }
             }
@@ -652,6 +672,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Not authenticated"
           },
           "500": {
             "description": "Internal Server Error"
@@ -659,7 +682,8 @@
         }
       },
       "delete": {
-        "description": "",
+        "summary": "Private endpoint. Github OAuth Authentication required",
+        "description": "Delete a user by ID",
         "parameters": [
           {
             "name": "id",
@@ -671,6 +695,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Not authenticated"
           },
           "500": {
             "description": "Internal Server Error"

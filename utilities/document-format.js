@@ -32,13 +32,9 @@ documentFormat.inventoryFormat = (body) => {
  * ********************************* */
 documentFormat.userFormat = (body) => {
   return {
-    firstName: body.firstName,
-    lastName: body.lastName,
-    phone: body.phone,
-    email: body.email,
-    position: body.position,
-    userName: body.userName,
-    password: body.password
+    githubId: body.githubId,
+    username: body.username,
+    displayName: body.displayName
   };
 };
 

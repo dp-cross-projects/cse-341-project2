@@ -1,6 +1,6 @@
 const mainModel = require('../models/index');
 const documentFormat = require('../utilities/document-format');
-const collection = 'user';
+const collection = mainModel.userCollection;
 
 const getAllUsers = async (req, res) => {
   //#swagger.tags=["User Management"]
@@ -21,18 +21,18 @@ const getSingleUser = async (req, res) => {
   });
 };
 
-const createUser = async (req, res) => {
-  //#swagger.tags=["User Management"]
-  const document = documentFormat.userFormat(req.body);
-  const response = await mainModel.createDocumentInCollection(collection, document);
-  if (response.acknowledged) {
-    res.status(200).json({ [collection + '_id']: response.insertedId });
-  } else {
-    res
-      .status(500)
-      .json(response.error || `Some error ocurred while creating data for ${collection}.`);
-  }
-};
+// const createUser = async (req, res) => {
+//   //#swagger.tags=["User Management"]
+//   const document = documentFormat.userFormat(req.body);
+//   const response = await mainModel.createDocumentInCollection(collection, document);
+//   if (response.acknowledged) {
+//     res.status(200).json({ [collection + '_id']: response.insertedId });
+//   } else {
+//     res
+//       .status(500)
+//       .json(response.error || `Some error ocurred while creating data for ${collection}.`);
+//   }
+// };
 
 const updateUser = async (req, res) => {
   //#swagger.tags=["User Management"]
@@ -64,7 +64,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   getAllUsers,
   getSingleUser,
-  createUser,
+  //createUser,
   updateUser,
   deleteUser
 };
