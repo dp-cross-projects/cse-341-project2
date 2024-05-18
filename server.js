@@ -73,15 +73,8 @@ passport.deserializeUser((user, done) => {
   done(null, profile);
 });
 
-app.get('/', async (req, res) => {
-  if (req.session.user !== undefined) {
-    const response = await mainModel.getGithubUser(req.session.user.id);
-    res.send( `Logged as ${response.displayName}`);
-  } else {
-    res.send(
-    'Logged Out')
-  }
-
+app.get('/', (req, res) => {
+  req.session.user !== undefined ? `Logged as ${req.session.user.displayName}` : 'Logged Out'
 });
 
 app.get(
