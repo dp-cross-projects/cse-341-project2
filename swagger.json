@@ -392,7 +392,7 @@
               "type": "object",
               "properties": {
                 "sellerId": {
-                  "example": "663fe0b90bc77e3b0f43e3e9"
+                  "example": "6648be23cef7a720b05b286f"
                 },
                 "customerId": {
                   "example": "663fe0d50bc77e3b0f43e3ea"
@@ -476,7 +476,7 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "663fe0b90bc77e3b0f43e3e9"
+                  "example": "6648be23cef7a720b05b286f"
                 },
                 "itemId": {
                   "example": "663fe0e50bc77e3b0f43e3eb"
@@ -545,7 +545,7 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "663fe0b90bc77e3b0f43e3e9"
+                  "example": "6648be23cef7a720b05b286f"
                 },
                 "itemId": {
                   "example": "663fe0e50bc77e3b0f43e3eb"

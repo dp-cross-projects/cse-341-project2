@@ -5,7 +5,7 @@ const userValidation = require('../utilities/user-validation');
 const utilities = require('../utilities/index');
 const { isAuthenticated } = require('../middleware/authenticate');
 
-router.get('/',  utilities.handleErrors(userController.getAllUsers));
+router.get('/', utilities.handleErrors(userController.getAllUsers));
 
 router.get('/:id', isAuthenticated, utilities.handleErrors(userController.getSingleUser));
 

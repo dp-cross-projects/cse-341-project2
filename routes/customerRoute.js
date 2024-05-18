@@ -11,7 +11,7 @@ router.get('/:id', isAuthenticated, utilities.handleErrors(customerController.ge
 
 router.post(
   '/',
-  isAuthenticated, 
+  isAuthenticated,
   customerValidation.customerCreationRules(),
   customerValidation.checkCustomerRules,
   utilities.handleErrors(customerController.createCustomer)
@@ -19,12 +19,12 @@ router.post(
 
 router.put(
   '/:id',
-  isAuthenticated, 
+  isAuthenticated,
   customerValidation.customerUpdateRules(),
   customerValidation.checkCustomerRules,
   utilities.handleErrors(customerController.updateCustomer)
 );
 
-router.delete('/:id',isAuthenticated,  utilities.handleErrors(customerController.deleteCustomer));
+router.delete('/:id', isAuthenticated, utilities.handleErrors(customerController.deleteCustomer));
 
 module.exports = router;

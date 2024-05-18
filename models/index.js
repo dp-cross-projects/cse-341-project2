@@ -1,7 +1,6 @@
 const mongodb = require('../config/connect');
 const ObjectId = require('mongodb').ObjectId;
-const userCollection = "user";
-
+const userCollection = 'user';
 
 const getAllFromCollection = async (collection) => {
   const result = await mongodb.getDatabase().db().collection(collection).find();
@@ -40,7 +39,11 @@ const deleteDocumentInCollection = async (collection, id) => {
 };
 
 const getGithubUser = async (id) => {
-  const result = await mongodb.getDatabase().db().collection(userCollection).findOne({ githubId: id });
+  const result = await mongodb
+    .getDatabase()
+    .db()
+    .collection(userCollection)
+    .findOne({ githubId: id });
   return result;
 };
 
@@ -48,7 +51,6 @@ const newGithubUser = async (data) => {
   const response = await mongodb.getDatabase().db().collection(userCollection).insertOne(data);
   return response;
 };
-
 
 module.exports = {
   getAllFromCollection,

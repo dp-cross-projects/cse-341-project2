@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./config/connect');
-const mainModel = require("./models/index");
+const mainModel = require('./models/index');
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
@@ -47,7 +47,6 @@ passport.use(
     },
 
     async function (accessToken, refreshToken, profile, done) {
-      
       try {
         let user = await mainModel.getGithubUser(profile.id);
         if (!user) {
@@ -74,10 +73,15 @@ passport.deserializeUser((user, done) => {
   done(null, profile);
 });
 
-app.get('/', (req, res) => {
-  res.send(
-    req.session.user !== undefined ? `Logged as ${req.session.user.displayName}` : 'Logged Out'
-  );
+app.get('/', async (req, res) => {
+  if (req.session.user !== undefined) {
+    const response = await mainModel.getGithubUser(req.session.user.id);
+    res.send( `Logged as ${response.displayName}`);
+  } else {
+    res.send(
+    'Logged Out')
+  }
+
 });
 
 app.get(

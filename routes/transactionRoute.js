@@ -7,7 +7,11 @@ const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', isAuthenticated, utilities.handleErrors(transactionController.getAllTransactions));
 
-router.get('/:id', isAuthenticated, utilities.handleErrors(transactionController.getSingleTransaction));
+router.get(
+  '/:id',
+  isAuthenticated,
+  utilities.handleErrors(transactionController.getSingleTransaction)
+);
 
 router.post(
   '/',
@@ -25,6 +29,10 @@ router.put(
   utilities.handleErrors(transactionController.updateTransaction)
 );
 
-router.delete('/:id', isAuthenticated, utilities.handleErrors(transactionController.deleteTransaction));
+router.delete(
+  '/:id',
+  isAuthenticated,
+  utilities.handleErrors(transactionController.deleteTransaction)
+);
 
 module.exports = router;
